@@ -1,0 +1,118 @@
+.select {
+	position: relative;
+	cursor: pointer;
+	z-index: 50;
+	&-title {
+		position: relative;
+		width: 100%;
+		min-width: 335px;
+		z-index: 1;
+		background-color: #1a1a1a;
+		padding: 12.5px 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__arrow {
+			width: 20px;
+			height: 20px;
+			margin-left: 20px;
+			transition: all 0.3s;
+		}
+		&__value {
+			display: block;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 19px;
+			letter-spacing: 0.03em;
+			color: #ffffff;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	&-options {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0px;
+		min-width: 100%;
+		border-top: none;
+		overflow: hidden;
+		background: rgb(22, 21, 24);
+		box-shadow: 0px 10px 32px rgba(0, 0, 0, 0.15);
+		white-space: nowrap;
+		z-index: 10;
+		&__value {
+			border-top: 1px solid rgba(255, 255, 255, 0.15);
+			padding: 8px 16px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 140%;
+			color: #fff;
+			cursor: pointer;
+			transition: all 0.3s;
+			&:hover {
+				background-color: rgba(232, 233, 233, 0.3);
+				color: #fff;
+				transition: all 0.3s;
+			}
+		}
+	}
+	&--item {
+		.select {
+			&-title {
+				min-width: 185px;
+				background-color: transparent;
+				padding: 14px 16px;
+				border: 1px solid rgba(12, 4, 36, 0.2);
+				border-radius: 4px;
+				&__value {
+					font-size: 18px;
+					line-height: 100%;
+					color: #0c0424;
+					letter-spacing: -0.005em;
+				}
+			}
+			&-options {
+				background: #fff;
+				&__value {
+					border-top: 1px solidrgba(0, 0, 0, 0.15);
+					color: #0c0424;
+					&:hover {
+						color: #6331f5;
+					}
+				}
+			}
+		}
+	}
+	&.active {
+		.select-title {
+			border-color: #6331f5;
+		}
+		.select-title__arrow {
+			transform: rotate(-180deg);
+		}
+	}
+}
+@media (max-width: 1430px) {
+	.select {
+		&-title {
+			&__value {
+				font-size: 16px;
+				line-height: 22px;
+			}
+		}
+	}
+}
+@media (max-width: 760px) {
+	.select {
+		&--item {
+			.select {
+				&-title {
+					background-color: #fff;
+					padding: 13px 16px;
+				}
+			}
+		}
+	}
+}

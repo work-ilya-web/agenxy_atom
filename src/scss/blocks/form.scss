@@ -1,0 +1,137 @@
+.form {
+	width: 100%;
+	&__label {
+		display: block;
+		position: relative;
+		margin-bottom: 54px;
+	}
+	&__error {
+		position: absolute;
+		font-size: 13px;
+		line-height: 110%;
+		letter-spacing: 0.04em;
+		color: #fd6007;
+		left: 0px;
+		bottom: -20px;
+		opacity: 0;
+	}
+	&-select {
+		position: relative;
+		cursor: pointer;
+		width: 100%;
+		&-title {
+			position: relative;
+			width: 100%;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 114%;
+			letter-spacing: -0.005em;
+			color: #03000b;
+			padding: 0px 0px 22px;
+			border-bottom: 1px solid #868686;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			&__arrow {
+				width: 10px;
+				height: 6px;
+				position: relative;
+				left: -12px;
+				top: 2px;
+				transition: all 0.3s;
+			}
+			&__value {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+		&-options {
+			display: none;
+			position: absolute;
+			top: 100%;
+			right: 0px;
+			min-width: 100%;
+			border-top: none;
+			background-color: #fff;
+			overflow: hidden;
+			box-shadow: 0px 10px 32px rgba(0, 0, 0, 0.15);
+			white-space: nowrap;
+			z-index: 10;
+			&__value {
+				& + & {
+					border-top: 1px solid rgba(0, 0, 0, 0.15);
+				}
+				padding: 10px 15px;
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 100%;
+				letter-spacing: -0.005em;
+				color: #03000b;
+				cursor: pointer;
+				transition: all 0.3s;
+				&:hover {
+					background-color: rgba(232, 233, 233, 0.3);
+					color: #6331f5;
+					transition: all 0.3s;
+				}
+			}
+		}
+		&.active {
+			.form-select-title {
+				border-color: #6331f5;
+			}
+			.form-select-title__arrow {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}
+textarea.form__field {
+	height: 166px;
+}
+@media (max-width: 1320px) {
+	.form {
+		&__label {
+			margin-bottom: 42px;
+		}
+		&-select {
+			&-title {
+				font-size: 21px;
+				padding: 0px 0px 20px;
+			}
+			&-options {
+				&__value {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+	textarea.form__field {
+		height: 120px;
+	}
+}
+@media (max-width: 1010px) {
+	.form {
+		&__label {
+			margin-bottom: 32px;
+		}
+		&-select {
+			&-title {
+				font-size: 18px;
+				padding: 0px 0px 18px;
+			}
+			&-options {
+				&__value {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	textarea.form__field {
+		height: 100px;
+	}
+}
+@media (max-width: 760px) {
+}

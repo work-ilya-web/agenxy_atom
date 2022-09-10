@@ -1,0 +1,59 @@
+.marquee-wrap {
+	max-width: 100%;
+	overflow: hidden;
+	padding-bottom: 233px;
+	@media screen and (max-width: 600px) {
+		padding-bottom: 80px;
+	}
+}
+
+.marquee {
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	animation: marquee 300s linear infinite;
+}
+
+.marquee p {
+	display: inline-block;
+	font-weight: 600;
+	font-size: 260px;
+	line-height: 78%;
+	letter-spacing: -0.03em;
+	color: #ffffff;
+	opacity: 0.2;
+	@media screen and (max-width: 600px) {
+		font-size: 100px;
+	}
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+@media (max-width: 1320px) {
+	.marquee-wrap {
+		padding-bottom: 150px;
+	}
+	.marquee p {
+		font-size: 160px;
+	}
+}
+@media (max-width: 1010px) {
+	.marquee-wrap {
+		padding-bottom: 96px;
+	}
+	.marquee p {
+		font-size: 120px;
+	}
+}
+@media (max-width: 760px) {
+	.marquee p {
+		font-size: 100px;
+		line-height: 104%;
+	}
+}

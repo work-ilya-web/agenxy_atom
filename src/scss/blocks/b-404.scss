@@ -1,0 +1,43 @@
+.b-404 {
+	position: relative;
+	background-image: url(../img/b-404/bg.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__desc {
+		font-family: "Roboto Mono", sans-serif;
+		max-width: 475px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 110%;
+		color: #ffffff;
+		margin-top: 40px;
+		margin-bottom: 80px;
+	}
+	.wrapper {
+		min-width: 1200px;
+	}
+}
+@media (max-width: 1320px) {
+	.b-404 {
+		&__wrap {
+			width: 100%;
+		}
+		.wrapper {
+			min-width: auto;
+		}
+	}
+}
+@media (max-width: 1010px) {
+}
+@media (max-width: 760px) {
+	.b-404 {
+		&__desc {
+			margin-bottom: 96px;
+		}
+	}
+}

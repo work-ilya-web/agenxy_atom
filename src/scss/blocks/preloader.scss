@@ -1,0 +1,62 @@
+.preloader {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	overflow: hidden;
+	z-index: 10000;
+	&.hidden {
+		transform: translateY(-120%);
+		visibility: hidden;
+		transition: all 0.3s;
+	}
+	&-content {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&.hidden {
+			transform: translateY(-20%);
+			transition: all 0.5s;
+		}
+	}
+	&__video {
+		width: 420px;
+		object-fit: contain;
+	}
+}
+@media (max-width: 1420px) {
+	.preloader {
+		&__video {
+			width: 320px;
+		}
+	}
+}
+@media (max-width: 1320px) {
+	.preloader {
+		&__video {
+			width: 240px;
+		}
+	}
+}
+@media (max-width: 1010px) {
+	.preloader {
+		&__video {
+			width: 200px;
+		}
+	}
+}
+@media (max-width: 760px) {
+	.preloader {
+		&__video {
+			width: 180px;
+		}
+	}
+}

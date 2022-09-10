@@ -1,0 +1,15 @@
+.minni-text {
+	margin-top: 173px;
+	max-width: 772px;
+	&__desc {
+		color: #868686;
+		margin-top: 24px;
+		margin-bottom: 48px;
+		@media screen and (max-width: 760px) {
+			margin-bottom: 40px;
+		}
+	}
+	@media screen and (max-width: 1320px) {
+		margin-top: 96px;
+	}
+}

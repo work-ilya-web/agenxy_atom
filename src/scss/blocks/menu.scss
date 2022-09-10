@@ -1,0 +1,272 @@
+.menu {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+	display: flex;
+	overflow: auto;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s;
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+		transition: all 0.3s;
+	}
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		/*background-image: url(../img/bg.jpg);
+		background-repeat: repeat;*/
+		background: #03030c;
+		transform: translateY(-100%);
+		opacity: 0;
+		transition: all 0.6s;
+		&.visible {
+			transform: translateY(0%);
+			opacity: 1;
+			transition: all 0.6s;
+		}
+	}
+	&__body {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+	}
+	&__wrap {
+		display: flex;
+		align-items: flex-start;
+	}
+	&__logo {
+		width: 500px;
+		height: auto;
+		margin-top: 25px;
+		transform: scale(0.7);
+		opacity: 0;
+		transition: all 1s;
+		&.visible {
+			transform: scale(1);
+			opacity: 1;
+			transition: all 1s;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	&__list {
+		margin-left: 260px;
+		ul {
+			li {
+				transform: translate3d(0, 40px, 0);
+				opacity: 0;
+				a {
+					display: inline-flex;
+					font-weight: 400;
+					font-size: 70px;
+					line-height: 100%;
+					color: #ffffff;
+					position: relative;
+					transition: all 0.5s;
+					&::before {
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						height: 1px;
+						background-color: #ffffff;
+						transform-origin: bottom right;
+						transform: scaleX(0);
+						transition: transform 0.5s ease;
+					}
+					&:hover {
+						&::before {
+							transform-origin: bottom left;
+							transform: scaleX(1);
+						}
+					}
+				}
+			}
+			li + li {
+				margin-top: 32px;
+			}
+		}
+		&:hover {
+			ul {
+				li {
+					a {
+						color: #868686;
+						&:hover {
+							color: #ffffff;
+							transition: all 0.5s ease;
+						}
+					}
+				}
+			}
+		}
+		&.visible {
+			@for $i from 1 through 10 {
+				ul {
+					li:nth-child(#{$i}) {
+						animation-delay: $i * 0.1s;
+					}
+				}
+			}
+			li {
+				animation-duration: 1s;
+				animation-fill-mode: both;
+				animation-name: fadeInUp;
+			}
+		}
+		&.open {
+			ul {
+				li {
+					transform: translate3d(0, 0, 0);
+					opacity: 1;
+				}
+			}
+		}
+		&.hidden {
+			@for $i from 10 through 1 {
+				ul {
+					li:nth-child(#{$i}) {
+						animation-delay: $i * 0.1s;
+					}
+				}
+			}
+			li {
+				animation-duration: 1s;
+				animation-fill-mode: both;
+				animation-name: fadeOut;
+			}
+		}
+	}
+}
+@keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 40px, 0);
+		opacity: 0;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadeInUp {
+	from {
+		transform: translate3d(0, 40px, 0);
+		opacity: 0;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 40px, 0);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes fadeOut {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 40px, 0);
+		opacity: 0;
+	}
+}
+@media (max-width: 1320px) {
+	.menu {
+		&__logo {
+			width: 440px;
+		}
+		&__list {
+			margin-left: 160px;
+			ul {
+				li {
+					a {
+						font-size: 40px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 1010px) {
+	.menu {
+		&__wrap {
+			justify-content: space-between;
+		}
+		&__logo {
+			width: 300px;
+		}
+		&__list {
+			margin-left: 0px;
+			width: 48%;
+		}
+	}
+}
+@media (max-width: 760px) {
+	.menu {
+		align-items: flex-end;
+		padding-bottom: 0px;
+		&__body {
+			height: 100%;
+		}
+		&__bg {
+			min-height: 650px;
+		}
+		&__wrap {
+			flex-wrap: wrap;
+			height: 100%;
+			min-height: 650px;
+			align-content: space-between;
+			padding: 60px 0px;
+		}
+		&__logo {
+			margin-top: 0;
+			display: block;
+			@media (max-height: 800px) {
+				width: 240px;
+			}
+		}
+		&__list {
+			width: 100%;
+			ul {
+				li + li {
+					margin-top: 16px;
+				}
+				li {
+					a {
+						@media (max-height: 800px) {
+							font-size: 34px;
+						}
+					}
+				}
+			}
+		}
+		.wrapper {
+			height: 100%;
+			min-height: 650px;
+		}
+	}
+}

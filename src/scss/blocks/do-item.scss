@@ -1,0 +1,105 @@
+.do-item {
+	background-color: #fff;
+	min-height: 539px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	padding: 48px 40px;
+	flex-direction: column;
+	@media screen and (max-width: 600px) {
+		min-height: 399px;
+		padding: 58px 24px 32px;
+	}
+	&:hover:not(.do-item--no-hover) {
+		.do-item__gradient {
+			opacity: 1;
+		}
+		.do-item__title {
+			transition: transform 4s ease-in;
+			transform: translateX(-90%);
+		}
+		.do-item__descr {
+			color: #fff;
+		}
+	}
+	&__gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(124.2deg, #14131b 22.78%, #11082c 99.58%);
+		z-index: 1;
+		opacity: 0;
+		transition: all 0.4s linear;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 200px;
+		line-height: 100%;
+		text-shadow: 1px 0 rgba(#0c0424, 0.2), -1px 0 rgba(#0c0424, 0.2), 0 1px rgba(#0c0424, 0.2),
+			0 -1px rgba(#0c0424, 0.2), 1px 1px rgba(#0c0424, 0.2), -1px -1px rgba(#0c0424, 0.2),
+			1px -1px rgba(#0c0424, 0.2), -1px 1px rgba(#0c0424, 0.2);
+		position: relative;
+		z-index: 2;
+		color: #fff;
+		transform: translateX(47%);
+		transition: transform 3s linear;
+		position: absolute;
+		right: 0;
+		@media screen and (max-width: 760px) {
+			font-size: 128px;
+		}
+	}
+	&__descr {
+		font-size: 19px;
+		line-height: 120%;
+		color: #868686;
+		margin-top: auto;
+		padding-top: 25px;
+		position: relative;
+		z-index: 2;
+		transition: color 0.4s linear;
+		@media screen and (max-width: 760px) {
+			font-size: 16px;
+		}
+	}
+	&--no-hover {
+		background-color: transparent;
+		padding: 0 0px 0px 55px;
+		@media screen and (max-width: 1320px) {
+			padding: 0 0px 0px 36px;
+		}
+		@media screen and (max-width: 1010px) {
+			padding: 40px 0px 0;
+			min-height: auto;
+		}
+		@media screen and (max-width: 1010px) {
+			padding: 16px 0 0;
+		}
+		.do-item__descr {
+			font-weight: 400;
+			font-size: 27px;
+			line-height: 120%;
+			padding: 0;
+			@media screen and (max-width: 600px) {
+				font-size: 20px;
+			}
+		}
+	}
+	&__action {
+		display: flex;
+		padding-bottom: 8px;
+		.btn {
+			margin-top: 46px;
+			@media screen and (max-width: 760px) {
+				margin-top: 40px;
+			}
+		}
+	}
+}
